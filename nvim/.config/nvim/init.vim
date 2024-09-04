@@ -1,0 +1,8 @@
+:set number
+:set relativenumber
+
+
+
+
+
+
