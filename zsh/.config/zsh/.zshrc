@@ -10,12 +10,14 @@ fi
 
 [ -f "${ZDOTDIR}/optionrc" ] && source "${ZDOTDIR}/optionrc"
 
+[ -f "${ZDOTDIR}/pluginrc" ] && source "${ZDOTDIR}/pluginrc"
+
 # source plugin
 
-source ${ZDOTDIR}/plugins/f-sy-h/F-Sy-H.plugin.zsh
-source ${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${ZDOTDIR}/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
-source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
+# source ${ZDOTDIR}/plugins/f-sy-h/F-Sy-H.plugin.zsh
+# source ${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ${ZDOTDIR}/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+# source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # keymap
 
