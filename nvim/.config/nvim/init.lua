@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
 
+  require 'plugins.lualine',
   require 'plugins.vim-sleuth',
   require 'plugins.gitsigns',
   require 'plugins.which-key',
@@ -35,7 +36,8 @@ require('lazy').setup({
   require 'plugins.autopairs',
   require 'plugins.neo-tree',
   require 'plugins.lazygit',
-
+  require 'plugins.context-comment',
+  require 'plugins.bufferline',
   -- { import = 'plugins' },
 }, {
   ui = {

@@ -16,6 +16,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- For conciseness
 local opts = { noremap = true, silent = true }
 
+-- save file
+vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts)
+
+-- save file without auto-formatting
+vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts)
+
+-- quit file
+vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
+
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
@@ -74,3 +83,5 @@ vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+vim.keymap.set('n', '<C-s', ':w', { desc = 'Save' })
