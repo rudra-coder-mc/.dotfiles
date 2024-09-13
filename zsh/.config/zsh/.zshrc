@@ -57,3 +57,8 @@ export PATH="$HOME/.bun/bin:$PATH"
 
 # bun completions
 [ -s "/home/pc/.bun/_bun" ] && source "/home/pc/.bun/_bun"
+
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

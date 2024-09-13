@@ -308,8 +308,9 @@ return {
       },
     }
 
-    vim.cmd [[nnoremap \ :Neotree toggle<cr>]]
-    vim.keymap.set('n', '<leader>e', ':Neotree toggle position=left<CR>', { noremap = true, silent = true }) -- focus file explorer
+    vim.cmd [[nnoremap \ :Neotree toggle position=right<cr>]]
+    vim.keymap.set('n', '<leader>e', ':Neotree reveal position=right<CR>', { noremap = true, silent = true }) -- focus file explorer
+    vim.keymap.set('n', '<leader>ce', ':Neotree close<CR>', { noremap = true, silent = true }) -- focus file explorer
     vim.keymap.set('n', '<leader>ngs', ':Neotree float git_status<CR>', { noremap = true, silent = true }) -- open git status window
   end,
 }
