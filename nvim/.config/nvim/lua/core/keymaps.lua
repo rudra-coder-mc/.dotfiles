@@ -19,6 +19,11 @@ local opts = { noremap = true, silent = true }
 -- save file
 vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts)
 
+-- Move to start / end of line
+
+vim.keymap.set('n', 'L', '$', { desc = 'go to line end', noremap = false, silent = true }) -- close current tab
+vim.keymap.set('n', 'H', '^', { desc = 'go to line start ', noremap = false, silent = true }) --  go to next tab
+
 -- save file without auto-formatting
 vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts)
 
@@ -52,7 +57,7 @@ vim.keymap.set('n', '<leader>bb', '<cmd> enew <CR>', { desc = 'to add new buffer
 vim.keymap.set('n', '<leader>spv', '<C-w>v', { desc = ' split window vertically', noremap = false, silent = true }) -- split window vertically
 vim.keymap.set('n', '<leader>sph', '<C-w>s', { desc = ' split window horizontally', noremap = false, silent = true }) -- split window horizontally
 vim.keymap.set('n', '<leader>spe', '<C-w>=', { desc = ' make split windows equal width & height', noremap = false, silent = true }) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>xs', ':close<CR>', { desc = ' close current split window', noremap = false, silent = true }) -- close current split window
+vim.keymap.set('n', '<leader>cs', ':close<CR>', { desc = ' close current split window', noremap = false, silent = true }) -- close current split window
 
 -- Navigate between splits
 vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', opts)
