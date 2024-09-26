@@ -10,7 +10,7 @@ return {
           -- Uncomment whichever linters you prefer
           -- 'flake8',
           -- 'mypy',
-          'pylint',
+          -- 'pylint',
         },
         markdown = { 'markdownlint' },
       }
