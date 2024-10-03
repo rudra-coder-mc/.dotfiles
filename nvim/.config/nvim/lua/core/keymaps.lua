@@ -94,3 +94,8 @@ vim.keymap.set('n', '<C-s', ':w', { desc = 'Save' })
 --- undotree keymaps
 
 vim.keymap.set('n', '<leader>lu', vim.cmd.UndotreeToggle, { desc = 'Undotree launch', noremap = false, silent = true })
+
+-- search through todo in telescope
+
+vim.keymap.set('n', '<leader>sat', '<cmd>TodoTelescope<cr>', { noremap = true, silent = true, desc = 'search todo in all file with telescope' })
+vim.keymap.set('n', '<leader>st', ':TodoTelescope cwd=.<cr>', { noremap = true, silent = true, desc = 'search todo with telescope' })

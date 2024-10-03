@@ -85,31 +85,31 @@ return {
           },
         },
       },
-      emmet_ls = {
-        capabilities = capabilities,
-        filetypes = {
-          'typescriptreact',
-          'css',
-          'html',
-          'javascript',
-          'typescript',
-          'javascriptreact',
-          -- 'eruby',
-          -- 'less',
-          -- 'sass',
-          -- 'scss',
-          -- 'svelte',
-          -- 'pug',
-          -- 'vue',
-        },
-        init_options = {
-          html = {
-            options = {
-              ['bem.enabled'] = true,
-            },
-          },
-        },
-      },
+      -- emmet_ls = {
+      --   capabilities = capabilities,
+      --   filetypes = {
+      --     'typescriptreact',
+      --     'css',
+      --     'html',
+      --     'javascript',
+      --     'typescript',
+      --     'javascriptreact',
+      --     -- 'eruby',
+      --     -- 'less',
+      --     -- 'sass',
+      --     -- 'scss',
+      --     -- 'svelte',
+      --     -- 'pug',
+      --     -- 'vue',
+      --   },
+      --   init_options = {
+      --     html = {
+      --       options = {
+      --         ['bem.enabled'] = true,
+      --       },
+      --     },
+      --   },
+      -- },
     }
 
     -- Mason setup and tool installation

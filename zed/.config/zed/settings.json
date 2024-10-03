@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "languages": {
+    "TSX": {
+      "show_inline_completions": true
+    }
+  },
   "auto_update_extensions": {
     "html": false
   },
