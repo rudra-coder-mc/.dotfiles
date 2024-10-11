@@ -36,3 +36,12 @@ map("v", "p", '"_dP', opts)
 -- Command line history navigation
 map("c", "<C-j>", "<C-n>", opts) -- Next command line history item
 map("c", "<C-k>", "<C-p>", opts) -- Previous command line history item
+
+--  floting terminal
+local lazyterm = function()
+  LazyVim.terminal(nil, { cwd = LazyVim.root() })
+end
+map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
+map("n", "<leader>ft", function()
+  LazyVim.terminal()
+end, { desc = "Terminal (cwd)" })
