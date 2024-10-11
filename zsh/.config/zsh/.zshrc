@@ -73,3 +73,4 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 
+. "/home/pc/.deno/env"
