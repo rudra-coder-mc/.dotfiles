@@ -39,9 +39,16 @@ map("c", "<C-k>", "<C-p>", opts) -- Previous command line history item
 
 --  floting terminal
 local lazyterm = function()
-  LazyVim.terminal(nil, { cwd = LazyVim.root() })
+  -- Get the root directory (replace this with your logic for determining the root, if needed)
+  local root_dir = vim.fn.getcwd()
+
+  -- Open a new terminal and set the local current directory to the root directory
+  vim.cmd("terminal")
+  vim.cmd("lcd " .. root_dir)
 end
+
 map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
+
 map("n", "<leader>ft", function()
   LazyVim.terminal()
 end, { desc = "Terminal (cwd)" })
