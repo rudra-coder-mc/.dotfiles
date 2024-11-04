@@ -57,6 +57,7 @@ compinit
 
 
 export PATH="$HOME/.bun/bin:$PATH"
+export PATH="/root/.bun/bin:$PATH"
 
 # bun completions
 [ -s "/home/pc/.bun/_bun" ] && source "/home/pc/.bun/_bun"
