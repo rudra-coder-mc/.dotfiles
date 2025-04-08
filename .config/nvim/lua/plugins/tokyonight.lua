@@ -3,9 +3,9 @@ return {
   opts = {
     transparent = true,
     style = "moon",
-    styles = {
-      sidebars = "transparent",
-      floats = "transparent",
-    },
+    -- styles = {
+    --   sidebars = "transparent",
+    --   floats = "transparent",
+    -- },
   },
 }
