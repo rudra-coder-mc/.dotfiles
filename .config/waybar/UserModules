@@ -1,0 +1,7 @@
+{
+    "custom/clipboard": {
+      "format": "📋 Clipboard",
+      "tooltip": "Open Clipboard Manager",
+      "on-click": "~/.config/hypr/scripts/ClipManager.sh"
+    },
+}

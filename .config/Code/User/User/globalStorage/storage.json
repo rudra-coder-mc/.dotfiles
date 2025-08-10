@@ -1,0 +1,77 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "01e2693998cc9a05acf87e7d09bfc23f046021d04eafa1f3719acd26fcc80a45",
+    "telemetry.devDeviceId": "46ad48b2-2d54-4fd5-8994-2e2a306cfca3",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///home/for-coding/work"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/for-coding/work": "__default__profile__"
+        },
+        "emptyWindows": {}
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#0d1117",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#c9d1d9",
+            "background": "#0d1117",
+            "editorBackground": "#0d1117",
+            "titleBarBackground": "#0d1117",
+            "titleBarBorder": "#30363d",
+            "activityBarBackground": "#0d1117",
+            "activityBarBorder": "#30363d",
+            "sideBarBackground": "#010409",
+            "sideBarBorder": "#30363d",
+            "statusBarBackground": "#0d1117",
+            "statusBarBorder": "#30363d",
+            "statusBarNoFolderBackground": "#0d1117"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 300,
+            "auxiliaryBarWidth": 0,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 300,
+            "auxiliaryBarWidth": 300,
+            "workspaces": {
+                "53d0958f5e8a41241d7953b815992a52": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/for-coding/work",
+            "backupPath": "/home/for-coding/.config/Code/Backups/65d77a8769a7ab46ca9408bc1988a783",
+            "uiState": {
+                "mode": 0,
+                "x": 360,
+                "y": 140,
+                "width": 1200,
+                "height": 800
+            }
+        },
+        "openedWindows": []
+    }
+}
