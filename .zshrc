@@ -1,63 +1,122 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# ---------------------------------
+# Powerlevel10k instant prompt
+# ---------------------------------
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# ---------------------------------
+# Oh My Zsh path
+# ---------------------------------
 export ZSH="$HOME/.oh-my-zsh"
 
+# ---------------------------------
+# Auto-install Oh My Zsh if missing
+# ---------------------------------
+if [ ! -d "$ZSH" ]; then
+  echo "🚀 Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# ---------------------------------
+# Auto-install plugins if missing
+# ---------------------------------
+declare -A PLUGINS_REPO=(
+  [zsh-autosuggestions]="https://github.com/zsh-users/zsh-autosuggestions"
+  [zsh-syntax-highlighting]="https://github.com/zsh-users/zsh-syntax-highlighting"
+  [zsh-completions]="https://github.com/zsh-users/zsh-completions"
+  [fzf-tab]="https://github.com/Aloxaf/fzf-tab"
+)
+
+for plugin in "${(@k)PLUGINS_REPO}"; do
+  if [ ! -d "$ZSH/custom/plugins/$plugin" ]; then
+    echo "📦 Installing plugin: $plugin"
+    git clone --depth=1 "${PLUGINS_REPO[$plugin]}" "$ZSH/custom/plugins/$plugin"
+  fi
+done
+
+# ---------------------------------
+# Auto-install Powerlevel10k theme if missing
+# ---------------------------------
+if [ ! -d "$ZSH/custom/themes/powerlevel10k" ]; then
+  echo "🎨 Installing Powerlevel10k theme..."
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH/custom/themes/powerlevel10k"
+fi
+
+# ---------------------------------
+# Theme & Plugins
+# ---------------------------------
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
-  git                     # Git commands and shortcuts
-  dnf                     # Fedora package manager helpers
-  zsh-autosuggestions     # Suggest commands as you type
-  zsh-syntax-highlighting # Highlight command syntax errors
-  fzf                     # Fuzzy finder integration with key bindings and completion
-  zsh-completions         # Extra completion scripts for many tools
-  sudo                    # Easily retry last command with sudo
-  command-not-found       # Helpful hints when commands aren’t found
+  git
+  dnf
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  fzf
+  zsh-completions
+  sudo
+  command-not-found
+  zsh-z
+  fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# check the dnf plugins commands here
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dnf
+# ---------------------------------
+# Completions setup
+# ---------------------------------
+# Fedora system completions
+fpath=(/usr/share/zsh/site-functions $fpath)
 
+# Custom completions directory
+fpath=("$HOME/.zsh/completions" $fpath)
+mkdir -p "$HOME/.zsh/completions"
 
-# Display Pokemon-colorscripts
-# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
-#pokemon-colorscripts --no-title -s -r #without fastfetch
-pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
+# Example: Add zellij completions if missing
+if [ ! -f "$HOME/.zsh/completions/_zellij" ] && command -v zellij >/dev/null 2>&1; then
+  zellij setup --generate-completion zsh > "$HOME/.zsh/completions/_zellij"
+fi
 
-# fastfetch. Will be disabled if above colorscript was chosen to install
-#fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
+autoload -Uz compinit
+compinit
 
-# Set-up FZF key bindings (CTRL R for fuzzy history finder)
+# ---------------------------------
+# FZF key bindings
+# ---------------------------------
+export FZF_ALT_C_COMMAND='sort -t"|" -k2,2nr ~/.z | awk -F"|" "{print \$1}"'
 source <(fzf --zsh)
 
+# ---------------------------------
+# History settings
+# ---------------------------------
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# Set-up icons for files/directories in terminal using lsd
+# ---------------------------------
+# Aliases
+# ---------------------------------
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# ---------------------------------
+# Powerlevel10k config
+# ---------------------------------
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# ---------------------------------
+# NVM setup
+# ---------------------------------
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-
+# ---------------------------------
+# Quiet instant prompt
+# ---------------------------------
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
